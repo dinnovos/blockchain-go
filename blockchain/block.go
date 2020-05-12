@@ -1,17 +1,27 @@
 package blockchain
 
-import "time"
+import (
+	"time" 
+	"sync"
+)
 
 type Block struct {
 	Timestamp 		time.Time
+	PreviousHash	string
     Hash			string
-    PreviousHash	string
     Data 			string
 }
 
-func (this *Block) SetValues(data string, hash string, previousHash string, timestamp time.Time){
-	this.Timestamp 		= timestamp
-	this.Hash 			= hash
-	this.PreviousHash 	= previousHash
-	this.Data 			= data
+var instance *Block
+var once sync.Once
+
+func (this *Block) Genesis() *Block{
+   instance = &Block{
+    	Timestamp: time.Now(),
+    	PreviousHash: "empty",
+    	Hash: "g3n3s1s-h4sh",
+    	Data: "g3n3s1s-data",
+    }
+
+    return instance
 }

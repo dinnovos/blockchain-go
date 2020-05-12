@@ -8,11 +8,9 @@ import (
 func main(){
 	fmt.Println("Iniciando Blockchain")
 
-	blockchain := new(b.Block)
+	blockInstance := new(b.Block)
 
-	//block.Data = "Mi Data"
-
-	//block.SetValues("Jorge mi nombre", "m1-h45h", "previus-hash", time.Now())
-
-	fmt.Println(blockchain)
+	genesisBlock := blockInstance.Genesis();
+	
+	fmt.Println(genesisBlock)
 }
