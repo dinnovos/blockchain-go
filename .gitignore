@@ -1,0 +1,7 @@
+/vendor
+/.idea
+/.vscode
+/.vagrant
+*.sublime-project
+*.sublime-workspace
+*.exe
